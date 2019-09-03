@@ -8,5 +8,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="src2"/>
 	<classpathentry kind="src" path="src3"/>
+	<classpathentry kind="src" path="SCLL_src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
