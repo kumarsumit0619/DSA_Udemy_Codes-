@@ -6,7 +6,7 @@ public class CircularSingleLinkedListMain {
 		// TODO Auto-generated method stub
 		CircularSingleLinkedList CSLL_obj = new CircularSingleLinkedList();
 		
-		CSLL_obj.createCircularSingleLinkedList(50);
+		CSLL_obj.createCircularSingleLinkedList(5);
 		CSLL_obj.traverseCircularSingleLinkedList();
 		
 		

@@ -55,17 +55,52 @@ public class CircularSingleLinkedList {
 	public void traverseCircularSingleLinkedList() {
 		
 		Node tempNode=head;
-		if(existsCircularSingleLinkedList()) {
-			for(int i=0; i<getSize(); i++) {
+		if(existsCircularSingleLinkedList()) 
+		{
+			for(int i=0; i<getSize(); i++) 
+			{
 				System.out.println(tempNode.getValue());
 				if(i!=getSize()-1)
-					System.out.println(" -> ");
+					System.out.print(" -> ");
 				tempNode=tempNode.getNext();
-				return;
 			}
+			System.out.println("\n");
 		}
-		System.out.println("Circular Single LL Does not exist!!!");
+		else
+		{
+			System.out.println("\nCircular Single LL Does not exist!!!");
+		}
 		
+	}//fn ends
+	
+	//inserting a node in the CSLL
+	public void insertInLinkedList(int nodeValue, int location)
+	{
+		Node node_obj = new Node();
+		node_obj.setValue(nodeValue);
+		System.out.println("Inserting a new node at location: " + location);
+		if(!existsCircularSingleLinkedList())
+		{
+			System.out.println("The CS Linked List does not Exist!!!");
+			return;  //CSLL DNE
+		}
+		else if(location == 0)                  //Insert at 1st position
+		{
+			node_obj.setNext(head);
+			head = node_obj;
+			tail.setNext(node_obj);       //updating tail
+		}
+		else if(location >= size) 				//Insert at last position
+		{
+			//node_obj.setNext(head);
+			tail.setNext(node_obj);
+			tail=node_obj;
+			tail.setNext(head);
+		}
+		else									//Insert at specified position
+		{
+			
+		}
 	}
 	
 	
