@@ -63,14 +63,6 @@ public class CircularSingleLinkedListMain {
 		
 		CSLL_obj.deleteLinkedList();
 		CSLL_obj.traverseCircularSingleLinkedList();
-		
-
-		
-		
-		
-		
-
-
 	}
 
 }
