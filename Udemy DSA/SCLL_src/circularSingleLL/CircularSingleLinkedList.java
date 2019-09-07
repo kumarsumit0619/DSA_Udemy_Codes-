@@ -163,7 +163,10 @@ public class CircularSingleLinkedList {
 				tail.setNext(head);
 				setSize(getSize()-1);
 				if(getSize() == 0)			// if there are no more nodes in this list
-					tail = null;
+					{
+					  tail.setNext(null);
+					  tail = null;
+					}
 			}
 			else if(location >= size)    	//deletion of last node
 			{
@@ -174,8 +177,8 @@ public class CircularSingleLinkedList {
 				}
 				if(tempNode == head)		//if this is the only element in the list
 				{
-					head = tail = null;
 					tail.setNext(null);
+					head = tail = null;
 					setSize(getSize()-1);
 					return;
 				}
