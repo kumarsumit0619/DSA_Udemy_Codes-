@@ -175,6 +175,7 @@ public class CircularSingleLinkedList {
 				if(tempNode == head)		//if this is the only element in the list
 				{
 					head = tail = null;
+					tail.setNext(null);
 					setSize(getSize()-1);
 					return;
 				}
