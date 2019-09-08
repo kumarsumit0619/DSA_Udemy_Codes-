@@ -1,1 +1,197 @@
 
+//Node.java
+package doubleLL;
+
+public class Node {
+	
+	private int value;
+	private Node next;
+	private Node prev;
+	
+	public Node()
+	{
+		value = 0;
+		next = null;
+		prev = null;
+	}
+	
+	//getters
+	public int getValue()
+	{
+		return value;
+	}
+
+	public Node getNext()
+	{
+		return next;
+	}
+	
+	public Node getPrev()
+	{
+		return prev;
+	}
+	
+	//setters
+	public void setValue(int value)
+	{
+		this.value = value;
+	}
+	
+	public void setNext(Node next)
+	{
+		this.next = next;
+	}
+	
+	public void setPrev(Node prev)
+	{
+		this.prev = prev;
+	}
+}
+//dll
+
+package doubleLL;
+
+public class DoubleLinkedList 
+{
+	
+	private Node head;
+	private Node tail;
+	private int size;
+	
+	//getters
+	public Node getHead() {
+		return head;
+		}
+	
+	public Node getTail() {
+		return tail;
+		}
+	
+	public int getSize() {
+		return size;
+	    }
+	//setters
+	public void setHead(Node head) {
+		this.head = head;
+		}
+	
+	public void setTail(Node tail) {
+		this.tail = tail;
+		}
+	
+	public void setSize(int size) {
+		this.size = size;
+		}
+	
+	//checking DLL
+	public boolean existsDoubleLinkedList() {
+		return (head!=null);
+	}
+	
+	//create DLL
+	public Node createDoubleLinkedList(int nodeValue) {
+		
+		Node node_obj = new Node();
+		node_obj.setValue(nodeValue);
+		head = node_obj;
+		tail = node_obj;
+		node_obj.setPrev(null);
+		node_obj.setNext(null);
+		size = 1;
+		return head;
+		
+	}
+	
+	//traverse DLL
+	public void traverseDoubleLinkedList() {
+		if(existsDoubleLinkedList())
+		{
+			//Node node_obj = new Node():
+			Node tempNode = head;
+			for(int i=0 ; i < getSize() ; i++)
+			{
+				System.out.print(tempNode.getValue());
+				if(i != getSize()-1)
+					System.out.print(" <--> ");
+				tempNode = tempNode.getNext();
+			}
+			System.out.println("\n");
+		}
+		else
+		{
+			System.out.println("\nDouble Linked List Does not Exist!!!");
+		}
+	}
+	
+	//Insert a node in a DLL
+	public void insertInDoubleLikedList(int nodeValue , int location) {
+		Node node_obj = new Node();
+		node_obj.setValue(nodeValue);
+		Node tempNode = head;
+		if(!existsDoubleLinkedList()) {
+			System.out.println("\nDouble Linked List Does not Exist!!!");
+			return;
+		}
+		else if(location == 0)   			//insert at 1st node
+			{
+				node_obj.setPrev(null);
+				node_obj.setNext(head);
+				head.setPrev(node_obj);
+				head = node_obj;
+			}
+		else if(location >=size)		//insert at last node			
+			{
+				node_obj.setPrev(tail);
+				node_obj.setNext(null);
+				tail.setNext(node_obj);
+				tail = node_obj;
+			}
+		else							//insert at a specified node
+			{
+				for(int i = 0 ; i <= location-2 ; i++)
+				{
+					tempNode = tempNode.getNext();
+				}
+				node_obj.setPrev(tempNode);
+				node_obj.setNext(tempNode.getNext());
+				tempNode.setNext(node_obj);
+				node_obj.getNext().setPrev(node_obj);
+			}
+		size++ ;	
+	 }
+	
+	
+	
+	
+}//DoubleLL class Ends
+
+
+//dll main
+
+package doubleLL;
+
+public class DoubleLinkedListMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		DoubleLinkedList DLL_obj = new DoubleLinkedList();
+		
+		DLL_obj.createDoubleLinkedList(5);
+		DLL_obj.traverseDoubleLinkedList();
+		
+		DLL_obj.insertInDoubleLikedList(10, 1);
+		DLL_obj.traverseDoubleLinkedList();
+
+		DLL_obj.insertInDoubleLikedList(20, 2);
+		DLL_obj.traverseDoubleLinkedList();
+
+		DLL_obj.insertInDoubleLikedList(30, 3);
+		DLL_obj.traverseDoubleLinkedList();
+
+		DLL_obj.insertInDoubleLikedList(40, 4);
+		DLL_obj.traverseDoubleLinkedList();
+
+
+	}
+
+}
