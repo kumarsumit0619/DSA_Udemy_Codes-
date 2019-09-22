@@ -1,0 +1,15 @@
+package stack;
+
+public class StackByLinkedListMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		StackByLinkedList stack_obj = new StackByLinkedList();
+		
+		System.out.println("Pushing 10 values into the stack");
+		for(int i = 1 ; i <= 10 ; i++) {
+			stack_obj.push(i*10);
+		}
+	}
+
+}
