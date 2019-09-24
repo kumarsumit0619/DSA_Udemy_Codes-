@@ -6,10 +6,23 @@ public class StackByLinkedListMain {
 		// TODO Auto-generated method stub
 		StackByLinkedList stack_obj = new StackByLinkedList();
 		
-		System.out.println("Pushing 10 values into the stack");
+		System.out.println("Pushing ten values into the stack: ");
 		for(int i = 1 ; i <= 10 ; i++) {
 			stack_obj.push(i*10);
 		}
+		System.out.println();
+		
+		System.out.print("Peeking value: ");
+		System.out.println(stack_obj.peek());
+		System.out.println();
+		
+		System.out.println("Popping 11 values from stack:");
+		for(int i=1 ; i <= 11 ; i++) {
+			System.out.println(stack_obj.pop());
+		}
+		
+		System.out.println("\nDeleting the entire stack...");
+		stack_obj.deleteStack();
+		System.out.println("Is Stack Empty: "+stack_obj.isEmpty());		
 	}
-
 }
