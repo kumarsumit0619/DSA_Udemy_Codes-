@@ -1,0 +1,106 @@
+package binaryTree;
+
+public class BinaryTreeByArray {
+	int arr[];
+	int lastUsedIndex = -1;
+	
+	//Constructor for blank tree
+	public BinaryTreeByArray(int size) {
+		arr = new int [ size + 1];
+		this.lastUsedIndex = 0;
+		System.out.println("\nBlank Tree/array of size " +size+ " has been created!!! \n " );
+	}//fn ends
+	
+	
+	//Insert a new node at the 1st empty space in the array
+	void insert(int value) {
+		if(!isTreeFull()) {
+			arr[lastUsedIndex+1]=value;
+			lastUsedIndex++;
+			System.out.println("Successfully inserted "+value+ " in the tree!");
+			return;
+		}
+		System.out.println("Could not insert the value in the tree as it is full!!! ");
+	}
+	
+	//check if array/tree is full or not
+	boolean isTreeFull() {
+		return (lastUsedIndex == arr.length-1);
+	}
+	
+	//level order traversal
+	public void levelOrderTraversal() {
+		for(int i = 1 ; i <= lastUsedIndex ; i++) {
+			System.out.print(arr[i]+" ");
+		}
+		System.out.println();
+	}
+	
+	//pre Order traversal
+	public void preOrderTraversal(int index) {
+		if(index > lastUsedIndex) return;
+		else {
+			System.out.print(arr[index]+" ");
+			preOrderTraversal(index*2);
+			preOrderTraversal(index*2 + 1);
+		}
+	}
+	
+	//In Order traversal
+		public void inOrderTraversal(int index) {
+			if(index > lastUsedIndex) return;
+			else {
+				inOrderTraversal(index*2);
+				System.out.print(arr[index]+" ");
+				inOrderTraversal(index*2 + 1);
+			}
+		}
+		
+		//pre Order traversal
+		public void postOrderTraversal(int index) {
+			if(index > lastUsedIndex) return;
+			else{ 
+				postOrderTraversal(index*2);
+				postOrderTraversal(index*2 + 1);
+				System.out.print(arr[index]+" ");
+			}
+		}
+		
+		//Do a linear search on the array
+		public int search(int valueToBeSearched) {
+			for(int i = 0 ; i <= lastUsedIndex; i++) {
+				if(arr[i] == valueToBeSearched) {
+					System.out.println(valueToBeSearched+" exists in the Tree!");
+					System.out.println("It is at the location: "+i);
+					return i;
+				}
+			}
+			System.out.println( valueToBeSearched+ " does not exists in the tree!!!\n");
+			return -1;
+		}//end of fn
+		
+		//Delete  value from BT
+		public void delete(int value) {
+			int location = search(value);
+			if(location == -1)		// value DN exists in Array
+				return;
+			else {
+				//insert last elements of the tree into current location
+				arr[location] = arr[lastUsedIndex];
+				lastUsedIndex--;
+				System.out.println("Successfully deleted "+value+" from the tree!!!\n");
+			}
+		}//end of method
+		
+		public void deleteTree() {
+			try 
+			{
+				arr = null;
+				System.out.println("Tree has been deleted Successfully!!!");
+			}
+			catch(Exception e)
+			{
+				System.out.println("There was an error deleting the tree");
+			}
+		}//fn ends
+}//ends of class
