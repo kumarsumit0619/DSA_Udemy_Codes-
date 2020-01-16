@@ -1,0 +1,63 @@
+package binaryTree;
+
+public class BinaryTreeByArrayMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//Create a blank array to store binary tree
+		System.out.println("Creating a blank array to store Binary tree..");
+		BinaryTreeByArray tree = new BinaryTreeByArray(10);
+		
+		//Insert 10 values in the tree
+		System.out.println("Inserting 10 values in the Tree...");
+		for(int i = 1 ; i <= 10 ; i++)
+				tree.insert(i*10);
+		
+		//Level Order Traversal
+		System.out.println("\nLevel-order Traversal: ");
+		tree.levelOrderTraversal();
+		
+		//Pre Order Traversal
+		System.out.println("\nPre-order Traversal: ");
+		tree.preOrderTraversal(1);System.out.println();
+		
+		//In Order Traversal
+		System.out.println("\nIn-order Traversal: ");
+		tree.inOrderTraversal(1);System.out.println();
+		
+		//Post Order Traversal
+		System.out.println("\nPost-order Traversal: ");
+		tree.postOrderTraversal(1);System.out.println();
+		
+		//Search for value in tree
+		System.out.println("\n\nSearching value 500 in the tree...");
+		tree.search(500);
+		
+		//Search for value in tree
+		System.out.println("\nSearching value 40 in the tree...");
+		tree.search(40);
+		
+		//Search for value in tree
+		System.out.println("\nSearching value 90 in the tree...");
+		tree.search(90);
+	
+		//Delete value from Tree
+		System.out.println("\nDeleting node 500 from the tree...");
+		tree.delete(500);
+		
+		//Delete value from Tree
+		System.out.println("Deleting node 40 from the tree...");
+		tree.delete(40);
+		
+		
+		//Level order Traverse
+		System.out.println("\nLevel-order Traversal:");
+		tree.levelOrderTraversal();
+		
+		
+		//Delete the entire Tree
+		System.out.println("\n\nDeleting the entire Tree...");
+		tree.deleteTree();
+	}
+}
