@@ -1,0 +1,31 @@
+package pack;
+import java.util.Scanner;
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int n,temp;
+		Scanner sc= new Scanner(System.in);
+		System.out.print("n=");
+		n=sc.nextInt();
+		int arr[]=new int[n];
+		System.out.print("Enter elements of array: ");
+		for(int i=0;i<n;i++)
+				arr[i]=sc.nextInt();
+		//int arr[]= {88, 55 , 66 , 9 , 7 ,-2 };
+		n=arr.length;
+    
+		for(int i=0;i<n-1;i++) {
+			for(int j=0;j<n-1-i;j++) {
+				if(arr[j] >arr[j+1]) {
+					temp=arr[j];
+					arr[j]=arr[j+1];
+					arr[j+1]=temp;
+				}
+			}
+		}
+		
+		for(int i=0;i<n;i++)
+			System.out.print(arr[i]+" ");
+	}
+}
