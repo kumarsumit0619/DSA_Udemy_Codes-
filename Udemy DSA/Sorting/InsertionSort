@@ -1,0 +1,24 @@
+package insertionSort;
+
+public class InsertionSort {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int n,temp,value,holeIndex;
+		int arr[]= {108, 5 , 61 , 9 , 7 ,-2 };
+		n=arr.length;
+		for(int i=1;i<=n-1;i++) {
+			value = arr[i];
+			holeIndex=i;
+			
+			while(holeIndex>0 && arr[holeIndex-1]>value) {
+				arr[holeIndex]=arr[holeIndex-1];
+				holeIndex--;
+			}
+			arr[holeIndex]=value;
+		}
+		
+		for(int i=0;i<n;i++)
+			System.out.print(arr[i]+" ");
+	}
+}
